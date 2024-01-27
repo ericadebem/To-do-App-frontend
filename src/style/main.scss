@@ -5,6 +5,8 @@ body {
   padding: 0;
   box-sizing: border-box;
   font-family: "Bebas Neue";
+  height: 10rem;
+  width: auto;
 }
 
 h1 {
@@ -13,26 +15,36 @@ h1 {
   background-color: #ff6347;
   text-align: center;
   width: 100%;
-  height: 10rem;
   padding: 4rem;
+}
+form {
+  margin-left: 25%;
 }
 
 input {
   display: flex;
   align-items: center;
-  
   border-radius: 10px;
   border: 1px solid #ff6347;
   width: 50%;
   height: 5rem;
   padding: 2rem;
-  margin: 3rem;
+  margin: 4rem;
 }
 ::placeholder {
   text-align: left;
   font-size: 3dvh;
   color: #ff6347;
 }
+input:hover {
+  background-color: #f6d7d1;
+  border: 1px solid #ff6347;
+}
+input:active {
+  background-color: #f6d7d1;
+  border: 1px solid #ff6347;
+}
+
 button {
   display: block;
   font-size: 120%;
@@ -42,5 +54,10 @@ button {
   border: 1px solid #ff6347;
   width: 17%;
   height: 1.5rem;
-  margin: 0.3rem;
+  margin-left: 25%;
+  margin-bottom: 0.3rem;
+}
+button:hover {
+  color: #ff6347;
+  background-color: #f6d7d1;
 }
