@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { FetchData } from "../util/FetchData";
 import axios, { AxiosError, AxiosResponse } from "axios";
 import { TaskContext } from "../context/TaskContext";
-import { AddTasksPage } from "../pages/AddTasksPage"
+import { AddTasksPage } from "../pages/AddTasksPage";
 
 interface ITask {
   title: string;
@@ -35,9 +35,7 @@ export const TasksPage = () => {
           placeholder="NEW TASK"
           name="newTask"
           id="newTask"
-          onChange={(e) =>
-            setFormData({ ...formData, title: String(e.target.value) })
-          }
+          onChange={(e) => setFormData({ ...formData, title: e.target.value })}
         />
         <input
           type="number"
@@ -45,7 +43,7 @@ export const TasksPage = () => {
           name="date"
           id="date"
           onChange={(e) =>
-            setFormData({ ...formData, data: Number(e.target.value) })
+            setFormData({ ...formData, date: Number(e.target.value) })
           }
         />
         <input
@@ -53,9 +51,7 @@ export const TasksPage = () => {
           placeholder="ACTION"
           name="action"
           id="action"
-          onChange={(e) =>
-            setFormData({ ...formData, action: String(e.target.value) })
-          }
+          onChange={(e) => setFormData({ ...formData, action: e.target.value })}
         />
         <input
           type="number"
@@ -67,8 +63,8 @@ export const TasksPage = () => {
           }
         />
 
-        <button onClick={() => SendData(AddTasksPage, formData)}>ADD</button>
-        <button onClick={() => SendData(TasksPage, formData)}>CANCEL</button>
+        <button onClick={() => SendData("AddTasksPage", formData)}>ADD</button>
+        <button onClick={() => SendData("TasksPage", formData)}>CANCEL</button>
       </form>
     </div>
   );
