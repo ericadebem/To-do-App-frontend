@@ -4,66 +4,73 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Bebas Neue";
-  height: 10rem;
+  font-family: "Bebas Neue", Arial, sans-serif;
+  font-size: 62.5%;
+  height: 15rem;
   width: auto;
 }
 
- .add-task .material-symbols-outlined {
-  font-variation-settings:
-   'FILL' 0,
-   'wght' 400,
-  'GRAD' 0,
-   'opsz' 24
- }
 h1 {
-  font-size: 5dvh;
+  font-size: 5vh;
   color: #fff;
   background-color: #ff6347;
   text-align: center;
   width: 100%;
-  padding: 4rem;
+  padding: 5rem;
 }
+
 form {
   margin-left: 25%;
+  padding: 2rem;
 }
 
 input {
-  display: flex;
-  align-items: center;
+  font-size: 3vh;
   border-radius: 10px;
   border: 1px solid #ff6347;
   width: 50%;
-  height: 5rem;
+  height: 7rem;
   padding: 2rem;
-  margin: 4rem;
+  margin: 2.5rem;
 }
-::placeholder {
-  text-align: left;
-  font-size: 3dvh;
+
+#newTask,
+#date,
+#action,
+#periodicity {
   color: #ff6347;
 }
-input:hover {
-  background-color: #f6d7d1;
-  border: 1px solid #ff6347;
+
+::placeholder {
+  text-align: left;
+  color: #ff6347;
+  width: 100%;
 }
+
+input:hover,
 input:active {
   background-color: #f6d7d1;
   border: 1px solid #ff6347;
 }
-
+.button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
 button {
   display: block;
-  font-size: 140%;
+  font-size: 2.5vh;
   color: #fff;
   border-radius: 10px;
   background-color: #ff6347;
   border: 1px solid #ff6347;
   width: 18%;
-  height: 1.8rem;
-  margin-left: 25%;
-  margin-bottom: 0.3rem;
+  height: 3rem;
+  margin-left: 20%;
+  margin-top: 0.5rem;
 }
+
 button:hover {
   color: #ff6347;
   background-color: #f6d7d1;

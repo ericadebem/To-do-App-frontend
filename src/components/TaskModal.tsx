@@ -1,4 +1,5 @@
 interface ITask {
+  _id: string;
   title: string;
   date: string;
   action: string;
@@ -7,21 +8,23 @@ interface ITask {
 
 interface ITaskProps {
   task: ITask;
-  onAdd: () => void;
-  onCancel: () => void;
+  onDelete: (id: string) => void;
 }
 
-export const TaskModal = ({ task, onAdd, onCancel }: ITaskProps) => {
-  const { title, date, action, periodicity } = task;
+export const TaskModal = ({ task, onDelete }: ITaskProps) => {
+  const { _id, title, date, action, periodicity } = task;
   const dateString = new Date(date).toLocaleDateString();
   return (
     <div>
+      <i
+        className="fa fa-trash-o"
+        aria-hidden="true"
+        onClick={() => onDelete(_id)}
+      ></i>
       <p>{title}</p>
-      <p>{dateString}</p>
+      <p>{dateString}/</p>
       <p>{action}</p>
-      <p>{periodicity}</p>
-      <button onClick={onAdd}>ADD</button>
-      <button onClick={onCancel}>CANCEL</button>
+      <p>{periodicity}/</p>  
     </div>
   );
 };
