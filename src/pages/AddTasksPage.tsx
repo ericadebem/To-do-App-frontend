@@ -1,10 +1,9 @@
 import { useState } from "react";
-import axios, { AxiosError } from "axios";
+import axios from "axios";
 import { ITask } from "../util/Interfaces";
 
 export const AddTasksPage = () => {
   const [formData, setFormData] = useState<ITask>({
-    _id: "",
     title: "",
     date: "",
     action: "",
@@ -18,20 +17,15 @@ export const AddTasksPage = () => {
   };
   const SendData = async (endpoint: string, data: ITask) => {
     try {
-      const response = await axios.post(
-        `http://localhost:6060/app/${endpoint}`,
-        data
-      );
-      return response.data;
-    } catch (error: AxiosError) {
+      await axios.post(`http://localhost:10000/app/${endpoint}`, data);
+    } catch (error) {
       console.error(error);
-      throw new Error(error.message);
+      throw new Error(error);
     }
   };
 
   const handleReset = () => {
     setFormData({
-      _id: "",
       title: "",
       date: "",
       action: "",
@@ -54,7 +48,9 @@ export const AddTasksPage = () => {
           placeholder="DATE"
           name="date"
           id="date"
-          onChange={(e) => setFormData({ ...formData, date: e.target.value })}
+          onChange={(e) =>
+            setFormData({ ...formData, date: JSON.stringify(e.target.value) })
+          }
         />
         <input
           type="text"
