@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { Outlet } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { FetchData } from "../util/FetchData";
 import { TaskModal } from "../components/TaskModal";
 import { ITask } from "../util/Interfaces";
@@ -26,9 +25,7 @@ const renderTasks = (tasks: any[]) => {
     return <p>NO TASKS, ADD NEW</p>;
   } else {
     const allTasks = tasks.map((task, index) => (
-      <div key={index}>
-        <p>{task.title}</p>
-        </div>
+      <div key={index}></div>
             ));
 
     return <div>{allTasks}</div>;
