@@ -13,8 +13,8 @@ export const TaskModal = ({ task }: ITaskProps) => {
       <p>{title}</p>
       <p>|</p>
       <p>{dateString}</p>
-      <button onClick={()=> DeleteData("task",task._id)}>x</button>
-      <i className="fa fa-trash-o" aria-hidden="true"></i>
+      <button onClick={async () => { await DeleteData("task", task._id); window.location.reload(); }}><i className="fa fa-trash-o" aria-hidden="true"></i></button>
+      
     </div>
   );
 };

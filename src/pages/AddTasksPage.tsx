@@ -60,7 +60,7 @@ export const AddTasksPage = () => {
           }
         />
         <div className="button-container">
-          <button onClick={handleSubmit}>ADD</button>
+          <button onClick={(e)=>{handleSubmit(e); window.location.reload();}}>ADD</button>
           <button type="reset">CANCEL</button>
         </div>
       </form>
