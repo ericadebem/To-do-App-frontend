@@ -54,12 +54,7 @@ input:active {
   background-color: #f6d7d1;
   border: 1px solid #ff6347;
 }
-.button-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
+
 button {
   display: block;
   font-size: 2.5vh;
@@ -79,4 +74,5 @@ button:hover {
 }
 .modal{
   display: flex;
+  background-color: #f6d7d1;
 }

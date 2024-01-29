@@ -1,19 +1,20 @@
 import { ITask } from "../util/Interfaces";
+import { DeleteData } from "../util/FetchData";
 
 interface ITaskProps {
   task: ITask;
 }
 
 export const TaskModal = ({ task }: ITaskProps) => {
-  const {title, date, action, periodicity } = task;
+  const {title, date} = task;
   const dateString = new Date(date).toLocaleDateString();
   return (
     <div className="modal">
-      <i className="fa fa-trash-o" aria-hidden="true"></i>
       <p>{title}</p>
+      <p>|</p>
       <p>{dateString}</p>
-      <p>{action}</p>
-      <p>{periodicity}</p>
+      <button onClick={()=> DeleteData("task",task._id)}>x</button>
+      <i className="fa fa-trash-o" aria-hidden="true"></i>
     </div>
   );
 };

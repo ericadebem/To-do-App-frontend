@@ -1,6 +1,6 @@
 import { useState } from "react";
-import axios from "axios";
 import { ITask } from "../util/Interfaces";
+import { SendData } from "../util/FetchData";
 
 export const AddTasksPage = () => {
   const [formData, setFormData] = useState<ITask>({
@@ -15,15 +15,6 @@ export const AddTasksPage = () => {
     console.log(formData);
     await SendData("task", formData);
   };
-  const SendData = async (endpoint: string, data: ITask) => {
-    try {
-      await axios.post(`http://localhost:10000/app/${endpoint}`, data);
-    } catch (error) {
-      console.error(error);
-      throw new Error(error);
-    }
-  };
-
   const handleReset = () => {
     setFormData({
       title: "",

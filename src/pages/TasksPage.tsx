@@ -25,7 +25,13 @@ const renderTasks = (tasks: any[]) => {
   if (tasks.length <= 0) {
     return <p>NO TASKS, ADD NEW</p>;
   } else {
-    return <p>ALL TASKS</p>;
+    const allTasks = tasks.map((task, index) => (
+      <div key={index}>
+        <p>{task.title}</p>
+        </div>
+            ));
+
+    return <div>{allTasks}</div>;
   }
 };
 

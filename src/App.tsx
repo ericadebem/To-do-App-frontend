@@ -1,7 +1,4 @@
 import { Outlet } from "react-router-dom";
-import { FetchData } from "./util/FetchData";
-import { TaskContext } from "./components/TaskModal"
-import { appRouter } from "./util/appRouter";
 
 import "./style/main.scss";
 
