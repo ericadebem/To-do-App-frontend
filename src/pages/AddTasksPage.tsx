@@ -1,22 +1,10 @@
 import { useState } from "react";
 import axios, { AxiosError } from "axios";
 import { ITask } from "../util/Interfaces";
-import { ObjectId } from "mongoose";
-
-export const SendData = async (endpoint: string, data: ITask) => {
-  try {
-    await axios.post(`http://localhost:6060/app/${endpoint}`, data);
-  } catch (error: AxiosError) {
-    console.error(error);
-    throw new Error(error.message);
-  }
-};
-
-
 
 export const AddTasksPage = () => {
   const [formData, setFormData] = useState<ITask>({
-    _id: ObjectId("651e8162ae6d53b28c94e030"),
+    _id: "",
     title: "",
     date: "",
     action: "",
@@ -25,12 +13,25 @@ export const AddTasksPage = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    console.log(formData);
     await SendData("task", formData);
+  };
+  const SendData = async (endpoint: string, data: ITask) => {
+    try {
+      const response = await axios.post(
+        `http://localhost:6060/app/${endpoint}`,
+        data
+      );
+      return response.data;
+    } catch (error: AxiosError) {
+      console.error(error);
+      throw new Error(error.message);
+    }
   };
 
   const handleReset = () => {
     setFormData({
-      _id: ObjectId("651e8162ae6d53b28c94e030"),
+      _id: "",
       title: "",
       date: "",
       action: "",
@@ -40,7 +41,7 @@ export const AddTasksPage = () => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit} onReset={handleReset}>
+      <form onReset={handleReset}>
         <input
           type="text"
           placeholder="NEW TASK"
@@ -53,9 +54,7 @@ export const AddTasksPage = () => {
           placeholder="DATE"
           name="date"
           id="date"
-          onChange={(e) =>
-            setFormData({ ...formData, date: Number(e.target.value) })
-          }
+          onChange={(e) => setFormData({ ...formData, date: e.target.value })}
         />
         <input
           type="text"
@@ -74,7 +73,7 @@ export const AddTasksPage = () => {
           }
         />
         <div className="button-container">
-          <button type="submit">ADD</button>
+          <button onClick={handleSubmit}>ADD</button>
           <button type="reset">CANCEL</button>
         </div>
       </form>
