@@ -18,7 +18,9 @@ h1 {
   width: 100%;
   padding: 5rem;
 }
-
+p{ 
+  font-size: 1.8rem;
+}
 form {
   margin-left: 25%;
   padding: 2rem;
@@ -74,4 +76,7 @@ button {
 button:hover {
   color: #ff6347;
   background-color: #f6d7d1;
+}
+.modal{
+  display: flex;
 }

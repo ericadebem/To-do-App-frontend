@@ -1,12 +1,7 @@
 import { useState } from "react";
 import axios, { AxiosError } from "axios";
-
-interface ITask {
-  title: string;
-  date: string;
-  action: string;
-  periodicity: number;
-}
+import { ITask } from "../util/Interfaces";
+import { ObjectId } from "mongoose";
 
 export const SendData = async (endpoint: string, data: ITask) => {
   try {
@@ -17,8 +12,11 @@ export const SendData = async (endpoint: string, data: ITask) => {
   }
 };
 
+
+
 export const AddTasksPage = () => {
   const [formData, setFormData] = useState<ITask>({
+    _id: ObjectId("651e8162ae6d53b28c94e030"),
     title: "",
     date: "",
     action: "",
@@ -32,6 +30,7 @@ export const AddTasksPage = () => {
 
   const handleReset = () => {
     setFormData({
+      _id: ObjectId("651e8162ae6d53b28c94e030"),
       title: "",
       date: "",
       action: "",
@@ -74,9 +73,9 @@ export const AddTasksPage = () => {
             setFormData({ ...formData, periodicity: Number(e.target.value) })
           }
         />
-        <div className="button">
-        <button type="submit">ADD</button>
-        <button type="reset">CANCEL</button>
+        <div className="button-container">
+          <button type="submit">ADD</button>
+          <button type="reset">CANCEL</button>
         </div>
       </form>
     </div>
