@@ -1,20 +1,37 @@
 import { ITask } from "../util/Interfaces";
 import { DeleteData } from "../util/FetchData";
+import { UpdateData } from "../util/FetchData";
 
 interface ITaskProps {
   task: ITask;
 }
 
 export const TaskModal = ({ task }: ITaskProps) => {
-  const {title, date} = task;
+  const { title, date } = task;
   const dateString = new Date(date).toLocaleDateString();
+
   return (
     <div className="modal">
       <p>{title}</p>
       <p>|</p>
       <p>{dateString}</p>
-      <button onClick={async () => { await DeleteData("task", task._id); window.location.reload(); }}><i className="fa fa-trash-o" aria-hidden="true"></i></button>
-      
+      <button
+        className="Test"
+        onClick={async () => {
+          await DeleteData("task", task._id);
+          window.location.reload();
+        }}
+      >
+        <i className="far fa-trash-alt"></i>
+      </button>
+      <button
+        onClick={async () => {
+          await UpdateData("task", task._id);
+          window.location.reload();
+        }}
+      >
+        <i className="far fa-edit"></i>
+      </button>
     </div>
   );
 };

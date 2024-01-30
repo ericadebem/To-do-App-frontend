@@ -21,10 +21,23 @@ export const SendData = async (endpoint: string, data: ITask) => {
 };
 
 export const DeleteData = async (endpoint: string, id: string) => {
-  try{
+  try {
     await axios.delete(`http://localhost:10000/app/${endpoint}/${id}`);
-  }catch (error) {
+  } catch (error) {
     console.error(error);
     throw new Error(error);
   }
-} 
+};
+
+export const UpdateData = async (
+  endpoint: string,
+  id: string,
+  newData: any
+) => {
+  try {
+    await axios.patch(`http://localhost:10000/app/${endpoint}/${id}`, newData);
+  } catch (error) {
+    console.error(error);
+    throw new Error(error);
+  }
+};
