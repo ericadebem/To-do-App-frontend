@@ -1,17 +1,19 @@
-*,
+@use "./reset.scss";
+
+:root {
+  font-size: 62.5%;
+}
 html,
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Bebas Neue", Arial, sans-serif;
-  font-size: 62.5%;
-  height: 15rem;
-  width: auto;
 }
+$font: "Bebas Neue", Arial, sans-serif;
 
 h1 {
-  font-size: 5vh;
+  font-family: $font;
+  font-size: 5rem;
   color: #fff;
   background-color: #ff6347;
   text-align: center;
@@ -19,6 +21,7 @@ h1 {
   padding: 5rem;
 }
 p {
+  font-family: $font;
   font-size: 1.8rem;
 }
 form {
@@ -27,37 +30,27 @@ form {
 }
 .modal {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   border: 1px solid #ff6347;
   border-radius: 10px;
   width: 300px;
   height: 100px;
   margin: 1rem;
-
-  p {
-    background-color: red;
-    line-height: 0;
-    padding: 0;
-    margin: 0;
+  padding: 0 20px;
+  color: #ff6347;
+  div {
+    display: flex;
   }
-
-  button {
-    display: grid;
-    place-items: center;
-    border: 1px solid #ff6347;
-    border-radius: 10px;
-    background-color: #fff;
-    // height: fit-content;
-
-    color: #ff6347;
-    i {
-      font-size: 2rem;
-      margin: 0;
-      padding: 10px;
-      height: 0;
-    }
-
+}
+button {
+  border: none;
+  background: none;
+  // height: fit-content;
+  color: #ff6347;
+  i {
+    font-size: 2rem;
+    margin: 0;
   }
 }
 
