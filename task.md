@@ -26,7 +26,6 @@ Mach den backend mit einem router und alles vollständig
 
 //
 
-
-SCSS
-Update
-Del ()
+SCSS - ok
+Update - pendente
+Delete - ok

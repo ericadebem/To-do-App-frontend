@@ -39,7 +39,7 @@ setUpdateTask(null);
 };
 const renderTasks = (tasks: ITask[]) => {
   if (tasks.length <= 0) {
-    return <p>NO TASKS, ADD NEW</p>;
+    return <p className="NoTasks">NO TASKS - Add new task in: /addtask</p>
   } else {
     return (
       <div className="task-container">

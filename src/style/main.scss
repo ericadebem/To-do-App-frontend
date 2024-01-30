@@ -17,13 +17,22 @@ p {
   font-family: $font;
   font-size: 1.8rem;
 }
+
+.NoTasks {
+  display: flex;
+  justify-content: center;
+  color: #ff6347;
+  font-family: $font;
+  font-size: 3rem;
+  margin-top: 10rem;
+}
+
 form {
   width: 100%;
   max-width: 600px;
   min-width: 300px;
   padding: 2rem;
   margin: 0 auto;
-
 }
 .modal {
   display: flex;
@@ -65,19 +74,13 @@ input {
   height: 7rem;
   padding: 2rem;
   margin: 2.5rem 0;
+  color: #ff6347;
 
   &:hover,
   &:active {
     background-color: #f6d7d1;
     border: 1px solid #ff6347;
   }
-}
-
-#newTask,
-#date,
-#action,
-#periodicity {
-  color: #ff6347;
 }
 
 ::placeholder {
@@ -104,10 +107,10 @@ form {
     }
   }
 }
-.button-container{
+.button-container {
   display: flex;
-align-items: center;
+  align-items: center;
   flex-direction: column;
   gap: 10px;
-  margin:  0 auto;
+  margin: 0 auto;
 }
