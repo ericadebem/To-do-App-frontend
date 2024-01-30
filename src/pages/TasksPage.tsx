@@ -42,7 +42,7 @@ const renderTasks = (tasks: ITask[]) => {
     return <p>NO TASKS, ADD NEW</p>;
   } else {
     return (
-      <div>
+      <div className="task-container">
         {tasks.map((task) => (
           <TaskModal task={task} key={task._id} />
         ))}
